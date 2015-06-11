@@ -1,4 +1,5 @@
 require 'capybara/rspec'
+require 'plane'
 
 ## Note these are just some guidelines!
 ## Feel free to write more tests!!
@@ -10,7 +11,19 @@ require 'capybara/rspec'
 
 feature 'Grand Finale' do
 
-  xscenario 'all planes can land'
+  scenario 'all planes can land' do
+    airport = Airport.new
+    plane = Plane.new
+    airport.land(plane)
+    expect(airport.count_planes).to eq(1)
+    expect(plane.flying).to be(false)
+  end
 
-  xscenario 'all planes can take off'
+  scenario 'all planes can take off' do
+    airport = Airport.new
+    plane = Plane.new
+    airport.release(plane)
+    expect(airport.count_planes).to eq(0)
+    expect(plane.flying).to be(true)
+  end
 end

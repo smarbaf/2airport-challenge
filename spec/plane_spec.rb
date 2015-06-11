@@ -1,4 +1,4 @@
-require 'plane'
+# require 'plane'
 
 ## Note these are just some guidelines!
 ## Feel free to write more tests!!
@@ -16,14 +16,19 @@ require 'plane'
 
 describe Plane do
 
-  xit 'is flying when created'
+  it 'should be flying' do
+    plane = Plane.new
+    expect(plane.flying).to be(true)
+  end
 
-  xit 'can land'
+  it 'should be landed' do
+    plane = Plane.new
+    airport = double(:airport)
+    allow(airport).to receive(:land)
+    airport.land(plane)
+    expect(plane.flying).to be(false)
+  end
 
-  xit 'is landed after landing'
 
-  xit 'can take off'
-
-  xit 'is flying after take off'
 
 end
