@@ -23,8 +23,9 @@ describe Plane do
 
   it 'should be landed' do
     plane = Plane.new
-    airport = double(:airport)
-    allow(airport).to receive(:land)
+    # airport = double(:airport)
+    airport = Airport.new
+    # allow(airport).to receive(:land)
     airport.land(plane)
     expect(plane.flying).to be(false)
   end

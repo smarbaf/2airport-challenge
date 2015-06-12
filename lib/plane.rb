@@ -6,8 +6,8 @@ class Plane
     @flying = true
   end
 
-  def flying=(plane)
-    @flying = plane
+  def flying=(status)
+    @flying = status
   end
 
   # def flying  # replaced by attr_reader :flying
